@@ -1,0 +1,41 @@
+# Arquivos compilados e executáveis
+*.exe
+*.o
+*.obj
+*.so
+*.dll
+*.a
+*.dylib
+
+# Diretórios gerados por build systems
+build/
+bin/
+dist/
+Debug/
+Release/
+x64/
+x86/
+
+# Logs e dumps
+*.log
+*.core
+core.*
+vgcore.*
+
+# IDEs e editores (VSCode, Xcode, CLion, Visual Studio, etc.)
+.vscode/
+.idea/
+*.suo
+*.vcxproj.user
+*.user
+*.swp
+*.sln
+*.VC.db
+*.VC.db
+.DS_Store
+
+# Mac OS específicos
+.DS_Store
+*.DS_Store
+
+*exec
