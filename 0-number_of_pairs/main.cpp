@@ -4,7 +4,7 @@
 using namespace std;
 
 /**
- * @brief Excercice resolution.
+ * @brief Exercise resolution.
  *
  * Calculates the number of pairs (vi, vj) of elements in the `nums` vector whose sum is `s`.
  *
