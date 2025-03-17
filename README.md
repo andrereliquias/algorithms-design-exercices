@@ -31,6 +31,12 @@ To execute the program:
 make run EX=./path
 ```
 
+To debug a result (you must add the test case number in the `IN` variable):
+
+```sh
+make debug EX=./path IN=1
+```
+
 To clean the build files:
 
 ```sh
