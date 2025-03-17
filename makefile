@@ -30,3 +30,13 @@ run: all
 
 clean:
 	rm -f $(TARGET)
+
+debug: all
+	@if [ ! -f "$(EX)/tests/$(IN).in" ]; then \
+		echo "❌ Erro: Arquivo '$(EX)/tests/$(IN).in' não encontrado!"; \
+		exit 1; \
+	fi
+	rm -f $(EX)/debug.out
+	./$(TARGET) < $(EX)/tests/$(IN).in > $(EX)/debug.out
+	code $(EX)/debug.out
+	diff --color=auto $(EX)/debug.out $(EX)/tests/$(IN).out
