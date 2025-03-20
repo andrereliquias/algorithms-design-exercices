@@ -15,7 +15,7 @@ using namespace std;
  */
 int resolution(vector<pair<int, int> > &pairs, int &n)
 {
-  int count = 1;
+  int count = 0;
 
   sort(pairs.begin(), pairs.end());
 
@@ -27,7 +27,7 @@ int resolution(vector<pair<int, int> > &pairs, int &n)
       biggest = pairs[i].second;
     }
 
-    if (pairs[i + 1].first > biggest)
+    if (pairs[i + 1].first > biggest || i == n - 1)
     {
       count++;
     }
