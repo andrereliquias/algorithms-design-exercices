@@ -5,7 +5,7 @@ EX ?= ./
 SRC = $(EX)/main.cpp
 TARGET = $(EX)/exec
 TEST_DIR = $(EX)/tests
-TEST_CASES = $(shell ls $(TEST_DIR)/*.in | sed 's/\.in//')
+TEST_CASES = $(shell ls "$(TEST_DIR)"/*.in | sed 's/\.in//')
 
 .PHONY: all clean run tests
 
