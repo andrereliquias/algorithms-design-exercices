@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS = 
+CXXFLAGS = -std=c++17 -O2
 
 EX ?= ./
 SRC = $(EX)/main.cpp

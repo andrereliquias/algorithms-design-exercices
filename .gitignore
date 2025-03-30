@@ -40,3 +40,4 @@ vgcore.*
 
 *exec
 **/debug.out
+**/*.out.tmp
