@@ -42,6 +42,15 @@ void resolution(int n, int x, int y, int &countValidPaths, string t)
     return;
   }
 
+  bool hitEndBeforeFinish = x == 1 && y == 1 && n < t.size();
+  bool horizontalIsBlockedAndVerticalIsFree = marked[x][y+1] && marked[x][y-1] && !marked[x+1][y] && !marked[x-1][y];
+  bool verticalIsBlockedAndHorizontalIsFree = marked[x+1][y] && marked[x-1][y] && !marked[x][y+1] && !marked[x][y-1];
+
+  if (hitEndBeforeFinish || horizontalIsBlockedAndVerticalIsFree || verticalIsBlockedAndHorizontalIsFree)
+  {
+    return;
+  }
+
   char currentDirection = t[n];
   char newX, newY;
 
