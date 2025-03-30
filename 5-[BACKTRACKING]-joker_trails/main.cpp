@@ -1,5 +1,5 @@
 #include <iostream>
-#define SIZE 7
+#define SIZE 9
 
 bool marked[SIZE][SIZE];
 
@@ -21,10 +21,10 @@ bool valid(char v)
 
 /**
  * @brief Count the number of valid paths.
- * 
+ *
  * This function uses backtracking to explore all possible paths
  * from the starting position (0, 6) to the end of the string (0, 0).
- * 
+ *
  * @param n The current index in the string.
  * @param x The current x-coordinate.
  * @param y The current y-coordinate.
@@ -35,7 +35,7 @@ void resolution(int n, int x, int y, int &countValidPaths, string t)
 {
   if (n == t.size())
   {
-    if (x == 0 && y == 0)
+    if (x == 1 && y == 1)
     {
       countValidPaths += 1;
     }
@@ -104,15 +104,22 @@ int main()
   char c;
   for (i = 0; i < SIZE; i++)
     for (j = 0; j < SIZE; j++)
-      marked[i][j] = false;
+    {
+      if (i == 0 || i == SIZE - 1 || j == 0 || j == SIZE - 1)
+        marked[i][j] = true;
+      else
+        marked[i][j] = false;
+    }
 
   string t;
   cin >> t;
 
   int countValidPaths = 0;
 
-  marked[0][6] = true;
-  resolution(0, 0, 6, countValidPaths, t);
+  int startX = 0 + 1;
+  int startY = 6 + 1;
+  marked[startX][startY] = true;
+  resolution(0, startX, startY, countValidPaths, t);
 
   cout << countValidPaths << endl;
 
