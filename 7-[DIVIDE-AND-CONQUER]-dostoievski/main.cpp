@@ -50,7 +50,7 @@ int subarraySum(vector<int> &l)
   int rb = subarraySum(b);
   int r = crossedSubarraySum(a, b);
 
-  return max({r, ra, rb});
+  return max(r, max(ra, rb));
 }
 
 /**
