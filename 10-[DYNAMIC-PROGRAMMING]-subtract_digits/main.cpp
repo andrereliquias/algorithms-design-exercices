@@ -1,24 +1,36 @@
 #include <iostream>
 #include <vector>
+#include <climits>
 
 using namespace std;
 
+/**
+ * @brief Given a number `n`, find the minimum number of subtractions needed to reach `0`
+ * considering one of its digits.
+ *
+ * @param n The number to be subtracted.
+ * @param memo The memoization table.
+ * @return The minimum number of subtractions needed to reach `0`.
+ */
 int solve(int &n, vector<int> &memo)
 {
   memo[n] = 0;
-  int i = n;
-
-  while (i != 0)
+  for (int i = n; i >= 0; i--)
   {
+    if (memo[i] == INT_MAX)
+      continue;
+
     string s = to_string(i);
-    char maxDigitC = *std::max_element(s.begin(), s.end());
-    int maxDigit = maxDigitC - '0';
-    int result = i - maxDigit;
+    for (int j = 0; j < s.length(); j++)
+    {
 
-    if (result >= 0)
-      memo[result] = (memo[result] + memo[i]) + 1;
+      int d = s[j] - '0';
 
-    i = result;
+      if (d > 0 && i - d >= 0)
+      {
+        memo[i - d] = min(memo[i - d], memo[i] + 1);
+      }
+    }
   }
 
   return memo[0];
@@ -37,7 +49,7 @@ int main(int argc, char const *argv[])
 
   int n;
   cin >> n;
-  vector<int> memo(n);
+  vector<int> memo(n + 1, INT_MAX);
 
   int res = solve(n, memo);
 
